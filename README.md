@@ -29,8 +29,12 @@ Laravel (latest version)
 PHP HTTP client for external API requests
 RESTful API architecture
 
-Project Structure
-Frontend Structure
+
+
+## Project Structure
+
+### Frontend Structure
+```
 weather-app-frontend/
 ├── .env.local             # Environment variables
 ├── components/            # React components
@@ -54,8 +58,10 @@ weather-app-frontend/
 ├── public/                # Static assets
 ├── tailwind.config.js     # Tailwind configuration
 └── package.json           # Dependencies
+```
 
-Backend Structure
+### Backend Structure
+```
 weather-app-backend/
 ├── .env                   # Environment variables
 ├── app/
@@ -72,6 +78,9 @@ weather-app-backend/
 ├── config/
 │   └── weather.php        # Weather API configuration
 └── composer.json          # Dependencies
+```
+
+
 Getting Started
 Prerequisites
 
@@ -89,7 +98,7 @@ Installation
 Frontend Setup
 
 Clone the repository
-bashgit clone https://github.com/yourusername/weather-app.git
+git clone [https://github.com/yourusername/weather-app.git](https://github.com/joelwanjohi/weather_app)
 cd weather-app/weather-app-frontend
 
 Install dependencies
