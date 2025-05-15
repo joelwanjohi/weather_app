@@ -1,35 +1,35 @@
-Overview
-This weather application provides real-time weather data and forecasts using the OpenWeatherMap API. The project follows a decoupled architecture with:
+# Weather Application
 
-Frontend: NextJS with TypeScript, styled using Tailwind CSS and RippleUI components
-Backend: Laravel API serving as a proxy to the OpenWeatherMap API
+This weather application provides real-time weather data and forecasts using the OpenWeatherMap API. The project follows a decoupled architecture.
 
+## Overview
 
-Features
+The application is built with:
+- **Frontend**: NextJS with TypeScript, styled using Tailwind CSS and RippleUI components
+- **Backend**: Laravel API serving as a proxy to the OpenWeatherMap API
 
-Real-time weather data for any location
-3-day weather forecast
-Temperature unit conversion (°C/°F)
-Detailed weather information (wind speed, humidity, etc.)
-Responsive design for all devices
-Dynamic weather icons based on conditions
-City search functionality
+## Features
 
-Tech Stack
-Frontend
+- Real-time weather data for any location
+- 3-day weather forecast
+- Temperature unit conversion (°C/°F)
+- Detailed weather information (wind speed, humidity, etc.)
+- Responsive design for all devices
+- Dynamic weather icons based on conditions
+- City search functionality
 
-NextJS (React framework)
-TypeScript
-Tailwind CSS with RippleUI components
-Fetch API for AJAX requests
+## Tech Stack
 
-Backend
+### Frontend
+- NextJS (React framework)
+- TypeScript
+- Tailwind CSS with RippleUI components
+- Fetch API for AJAX requests
 
-Laravel (latest version)
-PHP HTTP client for external API requests
-RESTful API architecture
-
-
+### Backend
+- Laravel (latest version)
+- PHP HTTP client for external API requests
+- RESTful API architecture
 
 ## Project Structure
 
@@ -80,72 +80,95 @@ weather-app-backend/
 └── composer.json          # Dependencies
 ```
 
+## Getting Started
 
-Getting Started
-Prerequisites
+### Prerequisites
+- Node.js (v18+)
+- PHP (v8.1+)
+- Composer
+- OpenWeatherMap API key
+  - Sign up at OpenWeatherMap to get a free API key
+- Git
 
-Node.js (v18+)
-PHP (v8.1+)
-Composer
-OpenWeatherMap API key
+### Installation
 
-Sign up at OpenWeatherMap to get a free API key
+#### Frontend Setup
 
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/joelwanjohi/weather_app
+   cd weather-app/weather-app-frontend
+   ```
 
-Git
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Installation
-Frontend Setup
+3. **Create a .env.local file**
+   ```
+   NEXT_PUBLIC_API_URL=http://localhost:8000/api
+   ```
 
-Clone the repository
-git clone [https://github.com/yourusername/weather-app.git](https://github.com/joelwanjohi/weather_app)
-cd weather-app/weather-app-frontend
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+   The frontend will be available at http://localhost:3000
 
-Install dependencies
-bashnpm install
+#### Backend Setup
 
-Create a .env.local file
-NEXT_PUBLIC_API_URL=http://localhost:8000/api
+1. **Navigate to the backend directory**
+   ```bash
+   cd ../weather-app-backend
+   ```
 
-Start the development server
-bashnpm run dev
-The frontend will be available at http://localhost:3000
+2. **Install dependencies**
+   ```bash
+   composer install
+   ```
 
-Backend Setup
+3. **Create a .env file by copying .env.example**
+   ```bash
+   cp .env.example .env
+   ```
 
-Navigate to the backend directory
-bashcd ../weather-app-backend
+4. **Configure your .env file with your OpenWeatherMap API key**
+   ```
+   OPENWEATHERMAP_API_KEY=your_api_key_here
+   ```
 
-Install dependencies
-bashcomposer install
+5. **Generate an application key**
+   ```bash
+   php artisan key:generate
+   ```
 
-Create a .env file by copying .env.example
-bashcp .env.example .env
+6. **Start the development server**
+   ```bash
+   php artisan serve
+   ```
+   The Laravel API will be available at http://localhost:8000
 
-Configure your .env file with your OpenWeatherMap API key
-OPENWEATHERMAP_API_KEY=your_api_key_here
+## API Endpoints
 
-Generate an application key
-bashphp artisan key:generate
+### Backend API Endpoints
 
-Start the development server
-bashphp artisan serve
-The Laravel API will be available at http://localhost:8000
+| Endpoint | Method | Description | Parameters |
+|----------|--------|-------------|------------|
+| `/api/weather/current` | GET | Get current weather | city (string) |
+| `/api/weather/forecast` | GET | Get weather forecast | city (string) |
+| `/api/weather/search` | GET | Search for a city | query (string) |
 
-API Endpoints
-Backend API Endpoints
-EndpointMethodDescriptionParameters/api/weather/currentGETGet current weathercity (string)/api/weather/forecastGETGet weather forecastcity (string)/api/weather/searchGETSearch for a cityquery (string)
+## Usage
 
-Usage
+1. Enter a city name in the search bar
+2. View the current weather conditions
+3. Check the 3-day forecast
+4. Toggle between Celsius and Fahrenheit using the unit switcher
 
-Enter a city name in the search bar
-View the current weather conditions
-Check the 3-day forecast
-Toggle between Celsius and Fahrenheit using the unit switcher
-
-
+## OpenWeatherMap API
 
 This application uses the following OpenWeatherMap API endpoints:
 
-Current Weather Data: https://api.openweathermap.org/data/2.5/weather
-5 Day / 3 Hour Forecast: https://api.openweathermap.org/data/2.5/forecast
+- Current Weather Data: https://api.openweathermap.org/data/2.5/weather
+- 5 Day / 3 Hour Forecast: https://api.openweathermap.org/data/2.5/forecast
